@@ -46,11 +46,11 @@ public class PlayerSpin : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
         {
-            body2D.AddTorque(playerController.PlayerData.RotationForce, ForceMode2D.Force);
+            body2D.AddTorque(playerController.PlayerData.RotationForce * Time.fixedDeltaTime, ForceMode2D.Impulse);
         }
         if (Input.GetKey(KeyCode.D))
         { 
-            body2D.AddTorque(-playerController.PlayerData.RotationForce, ForceMode2D.Force);
+            body2D.AddTorque(-playerController.PlayerData.RotationForce * Time.fixedDeltaTime, ForceMode2D.Impulse);
         }
     }
 }
