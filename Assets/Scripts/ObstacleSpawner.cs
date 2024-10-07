@@ -8,7 +8,7 @@ public class SpawnObstacle
     public int poolIndex;
 }
 
-public class Spawner : MonoBehaviour
+public class ObstacleSpawner : MonoBehaviour
 {
     // Stack-base ObjectPool
     private IObjectPool<GameObject>[] objectPools;

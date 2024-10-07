@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class LateralMovement : MonoBehaviour
 {
+    [SerializeField] private PlayerData playerData;
     Rigidbody2D body2D;
 
     private void Awake()
@@ -11,7 +12,12 @@ public class LateralMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        body2D.velocity = new Vector2(-3, 0);
+        body2D.velocity = new Vector2(-playerData.InitialSpeed, 0);
+    }
+
+    private void OnDisable()
+    {
+        body2D.velocity = new Vector2(0, 0);
     }
 
 }

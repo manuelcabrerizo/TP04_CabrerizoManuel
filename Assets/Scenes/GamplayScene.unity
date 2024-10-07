@@ -2833,13 +2833,49 @@ PrefabInstance:
       propertyPath: speed
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 57692193234468927, guid: 9d154312ff911524a8f6faa872d1be35, type: 3}
+      propertyPath: playerData
+      value: 
+      objectReference: {fileID: 11400000, guid: 421ff6e5bf052184cb6f192f3e81962c, type: 2}
+    - target: {fileID: 57692193234468927, guid: 9d154312ff911524a8f6faa872d1be35, type: 3}
+      propertyPath: parallaxData
+      value: 
+      objectReference: {fileID: 11400000, guid: 6ea6a671843c1314280cd03427376503, type: 2}
+    - target: {fileID: 57692193234468927, guid: 9d154312ff911524a8f6faa872d1be35, type: 3}
+      propertyPath: parallaxLayer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2917964791764879931, guid: 9d154312ff911524a8f6faa872d1be35, type: 3}
       propertyPath: speed
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2917964791764879931, guid: 9d154312ff911524a8f6faa872d1be35, type: 3}
+      propertyPath: playerData
+      value: 
+      objectReference: {fileID: 11400000, guid: 421ff6e5bf052184cb6f192f3e81962c, type: 2}
+    - target: {fileID: 2917964791764879931, guid: 9d154312ff911524a8f6faa872d1be35, type: 3}
+      propertyPath: parallaxData
+      value: 
+      objectReference: {fileID: 11400000, guid: 6ea6a671843c1314280cd03427376503, type: 2}
+    - target: {fileID: 2917964791764879931, guid: 9d154312ff911524a8f6faa872d1be35, type: 3}
+      propertyPath: parallaxLayer
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2976918196282474901, guid: 9d154312ff911524a8f6faa872d1be35, type: 3}
       propertyPath: speed
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2976918196282474901, guid: 9d154312ff911524a8f6faa872d1be35, type: 3}
+      propertyPath: playerData
+      value: 
+      objectReference: {fileID: 11400000, guid: 421ff6e5bf052184cb6f192f3e81962c, type: 2}
+    - target: {fileID: 2976918196282474901, guid: 9d154312ff911524a8f6faa872d1be35, type: 3}
+      propertyPath: parallaxData
+      value: 
+      objectReference: {fileID: 11400000, guid: 6ea6a671843c1314280cd03427376503, type: 2}
+    - target: {fileID: 2976918196282474901, guid: 9d154312ff911524a8f6faa872d1be35, type: 3}
+      propertyPath: ParallaxLayer
+      value: 1.53
       objectReference: {fileID: 0}
     - target: {fileID: 3559617721147564244, guid: 9d154312ff911524a8f6faa872d1be35, type: 3}
       propertyPath: m_Sprite
@@ -2861,6 +2897,18 @@ PrefabInstance:
       propertyPath: speed
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4320487104013489970, guid: 9d154312ff911524a8f6faa872d1be35, type: 3}
+      propertyPath: playerData
+      value: 
+      objectReference: {fileID: 11400000, guid: 421ff6e5bf052184cb6f192f3e81962c, type: 2}
+    - target: {fileID: 4320487104013489970, guid: 9d154312ff911524a8f6faa872d1be35, type: 3}
+      propertyPath: parallaxData
+      value: 
+      objectReference: {fileID: 11400000, guid: 6ea6a671843c1314280cd03427376503, type: 2}
+    - target: {fileID: 4320487104013489970, guid: 9d154312ff911524a8f6faa872d1be35, type: 3}
+      propertyPath: parallaxLayer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4370356892441744559, guid: 9d154312ff911524a8f6faa872d1be35, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -2880,6 +2928,18 @@ PrefabInstance:
     - target: {fileID: 7633450094373697835, guid: 9d154312ff911524a8f6faa872d1be35, type: 3}
       propertyPath: speed
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7633450094373697835, guid: 9d154312ff911524a8f6faa872d1be35, type: 3}
+      propertyPath: playerData
+      value: 
+      objectReference: {fileID: 11400000, guid: 421ff6e5bf052184cb6f192f3e81962c, type: 2}
+    - target: {fileID: 7633450094373697835, guid: 9d154312ff911524a8f6faa872d1be35, type: 3}
+      propertyPath: parallaxData
+      value: 
+      objectReference: {fileID: 11400000, guid: 6ea6a671843c1314280cd03427376503, type: 2}
+    - target: {fileID: 7633450094373697835, guid: 9d154312ff911524a8f6faa872d1be35, type: 3}
+      propertyPath: parallaxLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8121630017673936474, guid: 9d154312ff911524a8f6faa872d1be35, type: 3}
       propertyPath: m_LocalPosition.x

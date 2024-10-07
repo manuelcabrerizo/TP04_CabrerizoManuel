@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
 
     // Gameplay GameObjects
     [SerializeField] PlayerController player;
-    [SerializeField] Spawner spawner;
+    [SerializeField] ObstacleSpawner spawner;
 
     void Awake()
     {

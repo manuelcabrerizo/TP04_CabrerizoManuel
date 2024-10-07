@@ -23,6 +23,7 @@ public class AudioManager : MonoBehaviour
 
     // Pool of audio sources for sound effects
     private IObjectPool<AudioSource> sfxPool;
+    // Pool of audio sources for ui sounds
     private IObjectPool<AudioSource> uiPool;
 
     // throw an exception if we try to return an existing item,

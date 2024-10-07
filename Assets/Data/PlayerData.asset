@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitialPosition: {x: -3, y: -2.5}
   InitialSpeed: 3
-  MaxSpeed: 6
   JumpForce: 8
   RotationForce: 4
   JumpClip: {fileID: 8300000, guid: 73aa159c3ddc80a44bbd6deb62a94594, type: 3}
