@@ -14,6 +14,7 @@ public class PlayState : IState
 
     private float waitBeforeTheBoss = 10.0f;
     private float currentWaitBeforeTheBoss = 0;
+    private bool bossModeStarted;
 
     public void Enter()
     {
@@ -22,6 +23,7 @@ public class PlayState : IState
         AudioManager.Instance.PlayMusic();
         currentTime = timeToChangeMode;
         currentWaitBeforeTheBoss = waitBeforeTheBoss;
+        bossModeStarted = false;
     }
 
     public void Exit()
@@ -42,6 +44,7 @@ public class PlayState : IState
                 playMode = PlayMode.BossFight;
                 GameManager.Instance.PauseSpawner();
                 currentWaitBeforeTheBoss = waitBeforeTheBoss;
+                bossModeStarted = false;
             }
             else 
             {
@@ -55,10 +58,11 @@ public class PlayState : IState
 
         if (playMode == PlayMode.BossFight)
         {
-            if (currentWaitBeforeTheBoss <= 0.0f)
+            if (currentWaitBeforeTheBoss <= 0.0f && !bossModeStarted)
             {
                 GameManager.Instance.StartBossFightMode();
                 currentWaitBeforeTheBoss = waitBeforeTheBoss;
+                bossModeStarted = true;
             }
             currentWaitBeforeTheBoss -= dt;
         }

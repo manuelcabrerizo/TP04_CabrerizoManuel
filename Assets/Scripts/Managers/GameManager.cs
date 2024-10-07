@@ -73,6 +73,7 @@ public class GameManager : MonoBehaviour
 
     public void StartPlatformerMode()
     {
+        AudioManager.Instance.PlayClip(alien.AlienData.SpawnClip, AudioSourceType.SFX);
         alien.gameObject.SetActive(false);
         alien.ResetShoots();
         alien.PauseShoot();
@@ -86,6 +87,7 @@ public class GameManager : MonoBehaviour
 
     public void StartBossFightMode()
     {
+        AudioManager.Instance.PlayClip(alien.AlienData.SpawnClip, AudioSourceType.SFX);
         alien.gameObject.SetActive(true);
         alien.ResumeShoot();
     }

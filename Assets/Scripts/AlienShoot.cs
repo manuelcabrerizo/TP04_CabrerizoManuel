@@ -4,7 +4,10 @@ using UnityEngine.Pool;
 
 public class AlienShoot : MonoBehaviour
 {
+    [SerializeField] private AlienData alienData;
     [SerializeField] private GameObject projectilePrefab;
+
+    public AlienData AlienData => alienData;
 
     // Stack-base ObjectPool
     private IObjectPool<GameObject> objectPool;
@@ -18,7 +21,6 @@ public class AlienShoot : MonoBehaviour
     private List<GameObject> spawnedObjects;
     private List<GameObject> toRelease;
 
-    [SerializeField] private float timeToSpawn = 5.0f;
     private float currentTime = 0.0f;
     private bool pause;
 
@@ -32,7 +34,7 @@ public class AlienShoot : MonoBehaviour
         spawnedObjects = new List<GameObject>();
         toRelease = new List<GameObject>();
 
-        currentTime = timeToSpawn;
+        currentTime = alienData.TimeToFire;
         pause = true;
     }
 
@@ -47,8 +49,9 @@ public class AlienShoot : MonoBehaviour
                 GameObject obj = objectPool.Get();
                 obj.transform.position = (Vector2)transform.position + Vector2.left * transform.localScale.x * 0.5f;
                 spawnedObjects.Add(obj);
+                AudioManager.Instance.PlayClip(alienData.ShootClip, AudioSourceType.SFX);
                 // reset the time
-                currentTime = timeToSpawn;
+                currentTime = alienData.TimeToFire;
             }
             currentTime -= Time.deltaTime;
         }
@@ -75,7 +78,7 @@ public class AlienShoot : MonoBehaviour
 
     public void ResumeShoot()
     {
-        currentTime = timeToSpawn;
+        currentTime = alienData.TimeToFire;
         pause = false;
     }
     public void PauseShoot()
@@ -85,7 +88,7 @@ public class AlienShoot : MonoBehaviour
 
     public void ResetShoots()
     {
-        currentTime = timeToSpawn;
+        currentTime = alienData.TimeToFire;
         foreach (GameObject obj in spawnedObjects)
         {
             obj.SetActive(false);

@@ -1748,11 +1748,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ee4af523b14c9241a772f934b690a57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  alienData: {fileID: 11400000, guid: c50aaf8c7b02114498c99f7b49d57fac, type: 2}
   projectilePrefab: {fileID: 4240269994709352422, guid: 3333a81596889b1439b0cb64f64aa1c4, type: 3}
   collectionCheck: 1
   defaultCapacity: 20
   maxSize: 100
-  timeToSpawn: 2.5
 --- !u!1 &1004608516
 GameObject:
   m_ObjectHideFlags: 0
