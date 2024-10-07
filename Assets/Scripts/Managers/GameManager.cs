@@ -18,8 +18,9 @@ public class GameManager : MonoBehaviour
     public GameOverState GameOverState => gameOverState;
 
     // Gameplay GameObjects
-    [SerializeField] PlayerController player;
-    [SerializeField] ObstacleSpawner spawner;
+    [SerializeField] private PlayerController player;
+    [SerializeField] private ObstacleSpawner spawner;
+    [SerializeField] private AlienShoot alien;
 
     void Awake()
     {
@@ -48,6 +49,15 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            spawner.PauseSpawner();
+        }
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            spawner.ResumeSpawner();
+        }
+
         stateMachine.Update(Time.deltaTime);
     }
 
@@ -55,6 +65,29 @@ public class GameManager : MonoBehaviour
     {
         player.ResetPlayer();
         spawner.ResetSpawner();
+        spawner.ResumeSpawner();
+        alien.gameObject.SetActive(false);
+        alien.ResetShoots();
+        alien.PauseShoot();
+    }
+
+    public void StartPlatformerMode()
+    {
+        alien.gameObject.SetActive(false);
+        alien.ResetShoots();
+        alien.PauseShoot();
+        spawner.ResumeSpawner();
+    }
+
+    public void PauseSpawner()
+    {
+        spawner.PauseSpawner();
+    }
+
+    public void StartBossFightMode()
+    {
+        alien.gameObject.SetActive(true);
+        alien.ResumeShoot();
     }
 
     public void PushState(IState state)

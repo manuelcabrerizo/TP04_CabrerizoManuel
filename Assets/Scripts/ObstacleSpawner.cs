@@ -28,9 +28,10 @@ public class ObstacleSpawner : MonoBehaviour
     // time to wait for the next object to be spawned
     [SerializeField] private float timeToSpawn = 5.0f;
     private float currentTime = 0.0f;
+    private bool pause;
 
-    List<SpawnObstacle> spawnedObjects;
-    List<SpawnObstacle> toRelease;
+    private List<SpawnObstacle> spawnedObjects;
+    private List<SpawnObstacle> toRelease;
 
     bool firstSpawn;
     Vector2 startSpawnPosition;
@@ -50,6 +51,7 @@ public class ObstacleSpawner : MonoBehaviour
         toRelease = new List<SpawnObstacle>();
 
         startSpawnPosition = new Vector2(30, -3.5f);
+        pause = false;
 
         ResetSpawner();
     }
@@ -57,39 +59,43 @@ public class ObstacleSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentTime <= 0.0f)
+        if (!pause)
         {
-            // Update the spawnPosition
-            if (firstSpawn)
+            if (currentTime <= 0.0f)
             {
-                firstSpawn = false;
-            }
-            else
-            {
-                int yDelta = Random.Range(-1, 2) * 2;
-
-                Vector2 newPosition = spawnPosition + new Vector2(0, yDelta);
-                if (newPosition.y < -3) {
-                    newPosition.y = -3;
+                // Update the spawnPosition
+                if (firstSpawn)
+                {
+                    firstSpawn = false;
                 }
-                if (newPosition.y > 1) {
-                    newPosition.y = 1;
-                }
-                spawnPosition = newPosition;
-            }
+                else
+                {
+                    int yDelta = Random.Range(-1, 2) * 2;
 
-            // Spawn object
-            int index = Random.Range(0, 3);
-            GameObject obj = objectPools[index].Get();
-            SpawnObstacle obstacle = new SpawnObstacle();
-            obstacle.obj = obj;
-            obstacle.poolIndex = index;
-            spawnedObjects.Add(obstacle);
-            // reset the time
-            currentTime = timeToSpawn;
+                    Vector2 newPosition = spawnPosition + new Vector2(0, yDelta);
+                    if (newPosition.y < -3)
+                    {
+                        newPosition.y = -3;
+                    }
+                    if (newPosition.y > 1)
+                    {
+                        newPosition.y = 1;
+                    }
+                    spawnPosition = newPosition;
+                }
+
+                // Spawn object
+                int index = Random.Range(0, 3);
+                GameObject obj = objectPools[index].Get();
+                SpawnObstacle obstacle = new SpawnObstacle();
+                obstacle.obj = obj;
+                obstacle.poolIndex = index;
+                spawnedObjects.Add(obstacle);
+                // reset the time
+                currentTime = timeToSpawn;
+            }
+            currentTime -= Time.deltaTime;
         }
-        currentTime -= Time.deltaTime;
-
 
         RemoveDeadObstacles();
     }
@@ -110,6 +116,18 @@ public class ObstacleSpawner : MonoBehaviour
             spawnedObjects.Remove(obstacle);
         }
         toRelease.Clear();
+    }
+
+    public void ResumeSpawner()
+    {
+        firstSpawn = true;
+        spawnPosition = startSpawnPosition;
+        currentTime = timeToSpawn;
+        pause = false;
+    }
+    public void PauseSpawner()
+    {
+        pause = true;
     }
 
     public void ResetSpawner()
